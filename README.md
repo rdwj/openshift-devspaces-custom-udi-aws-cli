@@ -1,5 +1,7 @@
 # Extended Universal Developer Image (UDI) for OpenShift DevSpaces
 
+# NOTE: This is a work in progress and does not currently load the aws-cli.
+
 Forked from pittar/openshift-devspaces-custom-udi
 
 ## Extending UDI
