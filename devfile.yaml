@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/wjackson/devspaces-udi:3.4
+      image: quay.io/wjackson/devspaces-udi-aws:3.4
       memoryRequest: 1Gi
       memoryLimit: 3Gi
       cpuLimit: 1000m
