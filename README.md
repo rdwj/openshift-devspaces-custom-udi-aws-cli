@@ -1,5 +1,7 @@
 # Extended Universal Developer Image (UDI) for OpenShift DevSpaces
 
+Forked from pittar/openshift-devspaces-custom-udi
+
 ## Extending UDI
  
 The Containerfile included in this repo demostrates how to extend the official UDI image with extra tooling for Red Hat OpenShift DevSpaces.
@@ -9,9 +11,18 @@ The Containerfile included in this repo demostrates how to extend the official U
 Build the image and push it to Quay.io:
 
 ```
-buildah bud -t quay.io/pittar/devspaces-udi:3.4 .
+# Build the image with the name and tag we want
+podman build -t devspaces-udi-aws:3.4 .
 
-skopeo copy containers-storage:quay.io/pittar/devspaces-udi:3.4 docker://quay.io/pittar/devspaces-udi:3.4
+# Tag the image with the Quay.io repository URL
+podman tag devspaces-udi-aws:3.4 quay.io/wjackson/devspaces-udi-aws:3.4
+
+# Authenticate with Quay.io (if you haven't already)
+podman login quay.io
+
+# Push the image to Quay.io
+podman push quay.io/wjackson/devspaces-udi-aws:3.4
+
 ```
 
 ## Using the New Image
@@ -25,9 +36,9 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/pittar/devspaces-udi:3.4
+      image: quay.io/wjackson/devspaces-udi-aws:3.4
       memoryRequest: 1Gi
-      memoryLimit: 3Gi
+      memoryLimit: 4Gi
       cpuLimit: 1000m
       cpuRequest: 500m
 ```

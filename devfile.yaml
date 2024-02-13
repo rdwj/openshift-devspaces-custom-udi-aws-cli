@@ -1,10 +1,10 @@
 schemaVersion: 2.1.0
 metadata:
-  name: demo-project
+  name: aws-cli
 components:
   - name: tools
     container:
-      image: quay.io/pittar/devspaces-udi:3.4
+      image: quay.io/wjackson/devspaces-udi:3.4
       memoryRequest: 1Gi
       memoryLimit: 3Gi
       cpuLimit: 1000m
